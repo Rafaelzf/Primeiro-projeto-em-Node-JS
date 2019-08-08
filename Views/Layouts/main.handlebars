@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <link rel="stylesheet" href="/bootstrap-4.3.1-dist/css/bootstrap.css">
+    <title> Blog node.js</title>
+  
+</head>
+  <body class="d-flex flex-column h-100">
+    {{>_navbar}}
+    <main role="main" class="flex-shrink-0 mt-5">
+        <div class="container">
+            <!-- Mensagem de erro do autenticador -->
+            {{#if error}}
+                <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                    <strong>{{error}}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>              
+            {{/if}}
+
+            {{#if signupMessage}}
+                <div class="alert alert-info alert-dismissible fade show mt-2" role="alert">
+                    <strong>{{signupMessage}}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>              
+            {{/if}}
+        <!--FIM Mensagem de erro do autenticador -->
+           
+            {{>msg}}
+            {{{body}}}
+        </div>
+    <div class="mt-4"></div>
+    </main>
+    {{>_footer}}
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="/bootstrap-4.3.1-dist/js/bootstrap.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $("#categoria").change(function() {
+             var str = "";
+            $("select option:selected").each(function() {
+             str += $(this).attr("data-slug") + " ";
+            });
+            $( "#slug" ).val(str);
+        }).trigger("change");
+    })
+</script>
+
+</html>

@@ -1,0 +1,27 @@
+
+{{#each erro}}
+    <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+        <strong>{{texto}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{{else}}
+{{/each}}
+
+<div class="border border-success rounded-lg card">
+    <h5 class="card-title d-block p-2 bg-success text-white">Nova categoria</h5>
+    <div class="card-body">
+        <form action="/admin/categorias/nova" method="POST">
+            <div class="form-group">
+                <label for="nome">Nome: </label>
+                <input type="text" name="nome" id="nome" placeholder="Nome da categoria" class="form-control" minlength="4" required>
+            </div>
+            <div class="form-group">
+                <label for="slug">Slug: </label>
+                <input type="text" name="slug" id="slug" placeholder="Slug da categoria" class="form-control" minlength="4" required>
+            </div>
+            <button type="submit" class="btn btn-success">Criar categoria</button>
+        </form>
+    </div>
+</div>

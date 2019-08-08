@@ -1,0 +1,42 @@
+
+{{#each erro}}
+    <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+        <strong>{{texto}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{{else}}
+{{/each}}
+
+<h2>Lista de categorias</h2>
+<hr />
+<a href="/admin/categorias/add"><button class="btn btn-success">Adicionar categorias</button></a>
+
+{{#each categorias}}
+
+    <div class="card border-info mt-4">
+        <div class="card-body">
+            
+            <div class="d-flex align-items-center">
+             <h4><strong>{{nome}}</strong></h4>     
+            </div>
+            <small><strong>Slug:</strong> {{slug}}</small><br />
+             <small><strong>Data de criação:</strong> {{data}}</small><br /><br />
+             
+             <form action="/admin/categorias/deletar" method="POST" class="mt-2">
+                  <input type="hidden" name="id" value="{{_id}}">
+                    <a class="btn btn-dark" href="/admin/categorias/edit/{{_id}}">Editar categoria</a>
+                  <button type="submit" class="btn btn-danger">Deletar categoria</button>
+             </form>
+        </div>
+
+    </div>
+{{else}} 
+    <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+        <strong>Nenhuma categoria registrada</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{{/each}}

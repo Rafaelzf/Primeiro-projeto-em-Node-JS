@@ -1,0 +1,35 @@
+<h2>Lista de Posts</h2>
+<hr />
+<a href="/admin/postagens/add"><button class="btn btn-success">Nova postagem</button></a>
+
+{{#each postagens}}
+
+    <div class="card border-info mt-4">
+        <div class="card-body">
+            
+            <div class="d-flex align-items-center">
+             <h5 class="card-title"><strong>{{titulo}}</strong></h5>     
+            </div>
+
+             
+             <p class="card-text">{{descricao}}</p>
+             <p class="card-text"><small><strong>Data de criação:</strong> {{data}}</small></p>
+             <p class="card-text"><small><strong>Slug:</strong> {{slug}}</small></p>
+             <p class="card-text"><small><strong>Conteúdo:</strong> {{conteudo}}</small></p>
+             <p class="card-text"><small><strong>Categoria:</strong> {{categoria.nome}}</small></p>
+             <form action="/admin/postagens/deletar" method="POST" class="mt-2">
+                  <input type="hidden" name="id" value="{{_id}}">
+                  <a class="btn btn-dark" href="/admin/postagens/edit/{{_id}}">Editar postagem</a>
+                  <button type="submit" class="btn btn-danger">Deletar postagem</button>
+             </form>
+        </div>
+
+    </div>
+{{else}} 
+    <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+        <strong>Nenhuma postagem registrada</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{{/each}}

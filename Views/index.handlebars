@@ -1,0 +1,50 @@
+{{#each erro}}
+    <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+        <strong>{{texto}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+{{else}}
+{{/each}}
+
+
+<div class="jumbotron">
+  <h1 class="display-4">Bem-vindo ao Blog <span class="text-success">NodeJS</span></h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <hr class="my-4">
+  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
+
+
+<hr />
+
+<h3>Postagens recentes: </h3>
+
+{{#each postagens}}
+
+<div class="card mt-5">
+  <div class="card-header">
+    <h4>{{titulo}}</h4>
+  </div>
+  <div class="card-body">
+    <h6 class="card-title">{{descricao}}</h6>
+    <p class="card-text">{{conteudo}}</p>
+    <a href="/postagem/{{_id}}" class="btn btn-primary">Leia mais</a>
+  </div>
+  <div class="card-footer text-muted">
+    {{data}}
+  </div>
+</div>
+
+{{else}}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Infelizmente</strong> não há postagens.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+{{/each}}
+
