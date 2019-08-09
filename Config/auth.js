@@ -21,6 +21,7 @@ module.exports = function(passport) {
                 if (batem) {
                     return done(null, usuario, req.flash('signupMessage', 'Você está logado ao site'));
                 } else {
+
                     console.log('Senha incorreta');
                     return done(null, false, { message: "Senha incorreta" })
                 }
