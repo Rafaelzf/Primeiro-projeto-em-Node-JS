@@ -48,7 +48,7 @@ app.set('view engine', 'handlebars');
 
 //////// Mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://rafaelzf:nega123@blogapp-dfbej.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect(db.mongoURI, {
     useNewUrlParser: true
 }).then(() => {
     console.log("Conexão com banco realizada...");
