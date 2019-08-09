@@ -13,7 +13,7 @@ const flash = require("connect-flash");
 const usuarios = require('./Routes/usuarios');
 const passaport = require('passport');
 require('./Config/auth')(passaport);
-const db = require('./Config/db');
+const db = 'mongodb+srv://rafaelzf:nega123@blogapp-dfbej.mongodb.net/test?retryWrites=true&w=majority';
 
 //configurações
 
@@ -48,7 +48,7 @@ app.set('view engine', 'handlebars');
 
 //////// Mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect(db.mongoURI, {
+mongoose.connect(db, {
     useNewUrlParser: true
 }).then(() => {
     console.log("Conexão com banco realizada...");

@@ -43,7 +43,6 @@ router.get('/admin', eAdmin, (req, res) => {
 router.get('/postagem/:id', (req, res) => {
 
     Postagem.findOne({ _id: req.params.id }).then((postagens) => {
-        console.log(postagens);
         if (postagens) {
             res.render('Postagem/index', { postagens: postagens });
         } else {
